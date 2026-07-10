@@ -8,16 +8,23 @@ Domain Knowledge
 This engine has been trained to detect and classify four main types of URLs, reflecting a precise understanding of the nature of cyber threats:
 
   Benign: Safe and secure URLs for use.
+  
   Phishing: Phishing links designed to steal sensitive data and user accounts.
+  
   Malware: Links dedicated to downloading and spreading malicious software.
+  
   Defacement: Links targeting the hacking and defacing of legitimate website content.
+  
 
 Feature Engineering & NLP
 The system employs a hybrid approach to feature extraction to ensure maximum accuracy in understanding the "behavior" of the URL:
 
-  Heuristics (Manually Extracted Features): Calculating precise indicators such as Entropy, URL length, number of directories, and using Regular Expressions (Regex) to detect direct IP usage or suspicious words.
+  Heuristics (Manually Extracted Features): Calculating precise indicators such as Entropy, URL length, number of directories, and using Regular Expressions  (Regex) to detect direct IP usage or suspicious words.
+  
   Text Analysis (TF-IDF): Using n-grams technique at the character level (Char-level) to discover hidden linguistic patterns in malicious URLs.
+  
   Sparse Matrices: scipy.sparse.hstack was used to merge manual features (after applying MinMax Scaling) with the TF-IDF outputs, which significantly contributed to reducing memory consumption and accelerating the training process.
+  
 
 Modeling & Evaluation
 The models were trained and evaluated on a massive dataset exceeding one million links (1M+ URLs).
